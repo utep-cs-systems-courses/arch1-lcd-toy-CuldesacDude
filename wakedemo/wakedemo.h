@@ -4,7 +4,7 @@
 #include "lcddraw.h"
 #define LED_GREEN BIT6
 
-extern u_char h1;
+extern u_char L_R,nextL_R, U_D,nextU_D;
 
 void wdt_c_handler();
 

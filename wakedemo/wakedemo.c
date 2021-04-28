@@ -11,11 +11,13 @@
 short redrawScreen = 1;
 u_int fontFgColor = COLOR_GREEN;
 
-u_char helloCol = 10;
-u_char nextHelloCol = 10;
-u_char h1 = 10;
+u_char U_D = 10;
+u_char nextU_D = 10;
 
-signed char helloVelocity = 1; 
+u_char L_R = 10;
+u_char nextL_R = 10;
+
+signed char Speed = 2; 
 
 void wdt_c_handler()
 {
@@ -33,11 +35,6 @@ void wdt_c_handler()
   }
   if(dsecCount==25){
     dsecCount = 0;
-    nextHelloCol += helloVelocity;
-    if(nextHelloCol > 90 || nextHelloCol <= 0){
-      helloVelocity = -helloVelocity;
-      nextHelloCol += helloVelocity;
-    }
     redrawScreen = 1;
   }
 }
@@ -52,30 +49,43 @@ void StartGame()
   p2sw_init(15);
   
   enableWDTInterrupts();      /**< enable periodic interrupt */
-  or_sr(0x8);	              /**< GIE (enable interrupts) */
-
-
-  //static u_char h1 = helloCol; 
+  or_sr(0x8);	              /**< GIE (enable interrupts) */ 
   
   clearScreen(COLOR_BLACK);
   while (1) {			/* forever */
     u_int switches = p2sw_read(), i;
     char str[5];
-
+    
     for(i=0;i<4;i++){
-      str[i] = (switches & (1<<i)) ? '10' : '20'+i;
-      h1 = str[i];
+      str[i] = (switches & (1<<i)) ? '-' : '0'+i;
+
+      if(str[0]=='0'){
+	//drawString5x7(50,50,"H",COLOR_GREEN, COLOR_BLUE);
+	nextU_D += Speed;
+
+      }
+      if(str[1]=='1'){
+	nextU_D -= Speed;
+      }
+      if(str[2]=='2'){
+	nextL_R -=Speed;	
+      }
+      if(str[3]=='3'){
+        nextL_R +=Speed;	
+      }
+     
     }
     str[4] = 0;
-    drawString5x7(20,20,str,COLOR_GREEN, COLOR_BLUE);
+    drawString5x7(20,20,str,COLOR_WHITE, COLOR_BLACK);
 
     if (redrawScreen) {
 	redrawScreen = 0;
 
-	fillRectangle(10,helloCol,h1,10, COLOR_BLACK);
-	fillRectangle(10,nextHelloCol,h1,10, COLOR_RED);
-		      
-	helloCol = nextHelloCol;
+	fillRectangle(L_R,U_D,10,10, COLOR_BLACK);
+	fillRectangle(nextL_R,nextU_D,10,10, COLOR_RED);
+	L_R = nextL_R;	      
+	U_D = nextU_D;
+	
     }
     P1OUT &= ~LED_GREEN;	/* green off */
     or_sr(0x10);		/**< CPU OFF */

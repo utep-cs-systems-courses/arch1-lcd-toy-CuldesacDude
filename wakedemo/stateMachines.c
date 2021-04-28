@@ -12,12 +12,10 @@ void countToThree(){
   
   switch(state){
   case 0:
-    h1 = 50;
     state = 1;
     break;
     
   case 1:
-    h1=10;
     state = 0;
     break;
   }
