@@ -46,6 +46,7 @@ void switch_interrupt_handler(){
   if(SW1down){
 
     countToThree();
-
+    
   }
+  
 }

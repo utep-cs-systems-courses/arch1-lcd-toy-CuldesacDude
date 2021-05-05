@@ -1,9 +1,11 @@
-#ifndef stateMachines_included
-#define stateMachines_included
+#ifndef stateMachine_included
+#define stateMachine_included
 
 static char count;
 
 void countToThree();
+
+void reset();
 
 void secBttn();
 

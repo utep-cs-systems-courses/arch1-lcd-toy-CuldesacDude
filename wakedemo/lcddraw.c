@@ -17,6 +17,18 @@ void drawPixel(u_char col, u_char row, u_int colorBGR)
   lcd_writeColor(colorBGR);
 }
 
+/*Triangle*/
+
+void drawTri(u_char col, u_char row, u_int colorBGR){
+  offset_r = row;
+  offset_c = col;
+  for(int r=0;r<=50;r++){
+    for(int c=0; c<=r;c++){
+      drawPixel(offset_c+c+r/c, offset_r+r-c/r,colorBGR);
+    }
+  }
+}
+
 /** Fill rectangle
  *
  *  \param colMin Column start
