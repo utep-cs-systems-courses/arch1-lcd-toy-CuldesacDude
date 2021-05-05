@@ -1,5 +1,5 @@
 	.file	"_wdt_handler.c"
-.text
+	.text
 	.balign 2
 	.global	WDT
 	.section	__interrupt_vector_11,"ax",@progbits

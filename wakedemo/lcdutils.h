@@ -48,6 +48,9 @@ void lcd_init();
  *  \param colEnd End column of the area
  *  \param rowEnd End row of the area
  */
+
+void _writeCommand(u_char command) {} // maybe delete this later
+
 void lcd_setArea(u_char colStart, u_char rowStart, u_char colEnd, u_char rowEnd);
 
 /** Write color to LCD
