@@ -9,8 +9,11 @@
 #define SWITCHES (SW1 | SW2 | SW3 | SW4)
 
 void switch_init();
+
 void switch_interrupt_handler();
 
-extern char switch_state_changed,bttnState, SW1down, SW2down, SW3down, SW4down; /* effectively boolean */
+extern char switch_state_changed, SW1down, SW2down, SW3down, SW4down, mSwi;
+
+
 
 #endif // included
