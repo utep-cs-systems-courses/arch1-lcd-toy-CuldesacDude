@@ -86,7 +86,7 @@ void StartGame(){
       str[i] = (switches & (1<<i)) ? '*' : '0'+i;
 
       if(str[0]=='0'){
-	assemSound(0);
+	//assemSound(0);
 	
 	nextU_D +=Speed;    
 	//buzzer_set_period(700);
@@ -95,7 +95,7 @@ void StartGame(){
 	//sound();
       }
       if(str[1]=='1'){
-	assemSound(1);
+	//assemSound(1);
 	nextU_D -=Speed;	
 
 	//buzzer_set_period(600);
@@ -104,7 +104,7 @@ void StartGame(){
 	//sound();
       }
       if(str[2]=='2'){
-	assemSound(2);
+	//assemSound(2);
 	nextL_R -=Speed;	
 
 	//buzzer_set_period(500);
@@ -113,7 +113,7 @@ void StartGame(){
 	//sound();
       }
       if(str[3]=='3'){ nextL_R +=Speed;
-	assemSound(3);
+	//assemSound(3);
 	//buzzer_set_period(800);
 	sleep =1;
 	t=0;
@@ -132,7 +132,7 @@ void StartGame(){
     if (redrawScreen && sleep==1) {
       redrawScreen = 0;
 
-      drawString11x16(50,50,"LOL", COLOR_WHITE, COLOR_BLACK);
+      drawString11x16(30,30,"Hi, LOL", COLOR_WHITE, COLOR_BLACK);
 
       fillRectangle(L_R,U_D,10,10, COLOR_BLACK);
       fillRectangle(nextL_R,nextU_D,10,10, COLOR_RED);

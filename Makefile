@@ -6,7 +6,6 @@ all:
 	(cd p2swLib; make install)
 	(cd p2sw-demo; make)
 	(cd shape-motion-demo; make)
-	(cd LabLCD; make)
 	(cd src; make)
 
 doc:
@@ -14,7 +13,7 @@ doc:
 	doxygen Doxyfile
 clean:
 	(cd timerLib; make clean)
-	(cd lcdLib; make clean)
+	(cd src; make clean)
 	(cd shapeLib; make clean)
 	(cd p2swLib; make clean)
 	(cd p2sw-demo; make clean)
