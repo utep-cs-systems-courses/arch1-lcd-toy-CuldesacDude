@@ -1,13 +1,10 @@
 
-	/*r2 status registers]
-	r3 constant generator */
 	.arch	msp430g2553
 	.p2align 1,0
 
 	.text
 
-h:
-	
+jt:
 	.word option0
 	.word option1
 	.word option2
@@ -17,16 +14,16 @@ h:
 
 assemSound:
 	sub #2, r1
-	mov #0, 0(r1)
+	mov #0, 0(r12)
 
 	cmp #4, r12
 	jhs end
 
-	cmp #0, r12
+	cmp #0, r12		;del
 	jl end
 	
 	add r12, r12
-	mov h(r12), r1
+	mov jt(r12), r0
 
 option0:
 	mov #400, 0(r1)

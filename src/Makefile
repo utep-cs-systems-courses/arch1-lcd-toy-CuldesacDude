@@ -19,7 +19,7 @@ load: Game.elf
 clean:
 	rm -f *.o *.elf *~
 
-#assemSound.o: assemSound.s
+assemSound.o: assemSound.s
 led.o: led.h
 wdInterruptHandler.o: stateMachines.h buzzer.h led.h switches.h
 stateMachines.o: led.h buzzer.h stateMachines.h

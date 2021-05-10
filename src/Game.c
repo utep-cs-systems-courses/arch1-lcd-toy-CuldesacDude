@@ -86,38 +86,29 @@ void StartGame(){
       str[i] = (switches & (1<<i)) ? '*' : '0'+i;
 
       if(str[0]=='0'){
-	//assemSound(0);
-	
+	assemSound(1);
 	nextU_D +=Speed;    
-	//buzzer_set_period(700);
 	sleep =1;
 	t=0;
-	//sound();
       }
       if(str[1]=='1'){
-	//assemSound(1);
-	nextU_D -=Speed;	
-
-	//buzzer_set_period(600);
+	assemSound(1);
+	nextU_D -=Speed; 
 	sleep =1;
 	t=0;
-	//sound();
+    
       }
       if(str[2]=='2'){
-	//assemSound(2);
+	assemSound(2);
 	nextL_R -=Speed;	
-
-	//buzzer_set_period(500);
 	sleep =1;
 	t=0;
-	//sound();
       }
       if(str[3]=='3'){ nextL_R +=Speed;
-	//assemSound(3);
-	//buzzer_set_period(800);
+	assemSound(3);
 	sleep =1;
 	t=0;
-	//sound();
+  
       }      
     }
     str[4] = 0;
